@@ -23,6 +23,8 @@ Paths are configured globally with `Config.m`. This includes the root path for a
 
 ## 3 Executing the scripts
 
+You can find all primary scripts inside the `work/` directory.
+
 ### 3.1 Generate database
 The script `i_generate_database.m` is used to generate a database of asynchronous signals for nodes in a simulated shoebox environment. The database is encapsulated in a directory named according to the current date-time and stored in the root path specified in `Config.m`. 
 
