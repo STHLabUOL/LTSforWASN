@@ -50,7 +50,7 @@ In `iii_ACS_SRO_Est_err_PercentileFit.m`, the previously generated SRO and pACS 
 This script requires no further configuration and can be executed as-is. No results are stored. The employed threshold for obtaining the ACS is configured elsewhere.
 
 ### 3.4 Evaluate 
-Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. While this script generalyl requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
+Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. While this script generally requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
 
 | Parameter | Description |
 | --- | --- |
