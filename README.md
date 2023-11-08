@@ -55,3 +55,9 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 | Parameter | Description |
 | --- | --- |
 | include_CL_DXCPP | Whether or not to include closed-loop DXCP-PhaT SRO estimation in evaluation. Set to 1 or 0.
+
+
+## 4. Acknowledgment
+This work was partially supported by [German Research Foundation (DFG)](https://asn.uni-paderborn.de/) - Project 282835863.
+
+![Deutsche Forschungsgemeinschaft ](dfg.png)
