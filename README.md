@@ -11,7 +11,7 @@ This repository is comprised of 4 primary scripts, each one corresponding to one
 ## 1 Downloads
 ### 1.1 Audio source signal database
 TIMIT Database...
-## 1.2 Asynchronous signal database
+### 1.2 Asynchronous signal database
 You can download the training and test database used for the published results *here* . Place both directories inside the `databases/` directory. Databases contain the simulated asynchronous signals. 
 
 In addition, you can find the results for step 2 in `2022_10_1_15_47_52/results/est_results.mat` and the results for step 4 in `2022_10_4_12_55_30/results/eval_results.mat`.
