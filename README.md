@@ -63,3 +63,42 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 This work was partially supported by [German Research Foundation (DFG)](https://asn.uni-paderborn.de/) - Project 282835863.
 
 ![Deutsche Forschungsgemeinschaft ](dfg.png)
+
+
+## 5. Related publications
+
+```BibTex
+@InProceedings{Chinaev2023longterm,
+  author    = {Chinaev, A. and Knaepper, N. and Enzner, G.},
+  booktitle = {Proc. IEEE Int. Conf. Acoust., Speech, Signal Process.},
+  title     = {Long-term Synchronization of Wireless Acoustic Sensor Networks with Nonpersistent Acoustic Activity using Coherence State},
+  year      = {2023},
+  month     = {June},
+  pages     = {1--5},
+  doi       = {10.1109/ICASSP49357.2023.10095792}
+} 
+```
+
+```BibTex
+@InProceedings{Chinaev2022distributed,
+   author    = {Chinaev, A. and Enzner, G.},
+   booktitle = {Proc. Int. Workshop Acoust. Signal Enhancement},
+   title     = {Distributed Synchronization for Ad-Hoc Acoustic Sensor
+Networks Using Closed-Loop Double-Cross-Correlation Processing},
+   year      = {2022},
+   month     = {Sep.},
+   pages     = {1--5}
+}
+```
+
+```BibTex
+@InProceedings{Chinaev2021control,
+   author    = {Chinaev, A. and Wienand, S. and Enzner, G.},
+   booktitle = {Proc. IEEE Int. Conf. Acoust., Speech, Signal Process.},
+   title     = {Control Architecture of the Double-Cross-Correlation
+Processor for Sampling-Rate-Offset Estimation in Acoustic Sensor Networks},
+   year      = {2021},
+   month     = {June},
+   pages     = {801--805}
+}
+```
