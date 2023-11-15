@@ -9,12 +9,17 @@ This repository is comprised of 4 primary scripts, each one corresponding to one
 4. Evaluate SRO estimates obtained with and without ACS support
 
 ## 1 Downloads
-### 1.1 Audio source signal database
-TIMIT Database...
-### 1.2 Asynchronous signal database
-You can download the training and test database used for the published results *here* . Place both directories inside the `databases/` directory. Databases contain the simulated asynchronous signals. 
+### 1.1 Clean speech signal database
+Althogh the [TIMIT Acoustic-Phonetic Continuous Speech Corpus](https://catalog.ldc.upenn.edu/LDC93s1) was used internally during development and for the published results, the code in this repository was adjusted for compatibility with the [LibriSpeech ASR corpus](https://www.openslr.org/12) to eliminate any licensing concerns. 
 
-In addition, you can find the results for step 2 in `2022_10_1_15_47_52/results/est_results.mat` and the results for step 4 in `2022_10_4_12_55_30/results/eval_results.mat`.
+Please download the development set "clean" speech [here](https://www.openslr.org/resources/12/dev-clean.tar.gz) and place it inside the `audio/` directory if you wish to generate your own databases (see 3.1).
+
+
+
+### 1.2 Asynchronous signal database
+Exemplary training and test databases are available [here](#). Place both directories inside the `databases/` directory. Databases contain the simulated asynchronous signals. In addition, you can find the results for step 2 in `???/results/est_results.mat` and the results for step 4 in `???/results/eval_results.mat`.
+
+Note that, due to the aforementioned circumstances, you will not be able to precisely reproduce the published results.
 
 
 ## 2 Configuration
