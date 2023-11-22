@@ -1,15 +1,7 @@
 function [pos_new] = randomPositionFixedDistance(Room, pos_ref, d_des, d_wall_min)
 
-% Generate a random position for a second mic2  
-% with fixed desired distance to reference position of mic1 within a given
-% room.
-%
-% Note that a random position for mic2 in the desired distance for every possible
-% mic1 reference-position is guaranteed to exist only if:
-% d_des <= 0.5*sqrt(x^2+y^2+z^2), with x,y,z being the coordinates of the
-% virtual placement room (given by parRoom.Pos_Reg). 
-% If this equation is not fulfilled, there are mic1-positions for
-% which no mic2-position in the desired distance exists within the room.
+% Generate a random position with fixed desired distance to a given 
+% reference position within a given room.
 %
 % :param Room (1x3): room measurements [x, y, m] in meters
 % :param pos_ref (1x3): coordinates of reference position

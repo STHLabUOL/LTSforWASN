@@ -1,12 +1,15 @@
 function [K_Nominator,K_Denominator] = Controller_Choice(ControllerStructure, Tf, B_NumFr)
-%Controller_Choice returns the Nominator and Denominator of the
-%IMC-Controller for given parameter
-%   Controller_Choice returns the Nominator and Denominator of the
-%   IMC-Controller for given parameter
-%   Parameter:
-%   ControllerStructure: 'exact_IMC', 'approx_IMC', 'PIT1','PI'
-%   Tf: '1','3','8'
- %Begin controller choice
+    % Returns the Nominator and Denominator of the
+    % IMC-Controller for given parameter
+    %
+    % Input:
+    %   ControllerStructure: 'exact_IMC', 'approx_IMC', 'PIT1' or 'PI'
+    %   Tf: '1','3' or '8'
+    %
+    % Output:
+    % K_Nominator: Nominator coefficients
+    % K_Denominator: Denominator coefficients
+    
     switch(ControllerStructure)
         case 'exact_IMC'
             switch B_NumFr
@@ -124,6 +127,6 @@ function [K_Nominator,K_Denominator] = Controller_Choice(ControllerStructure, Tf
         otherwise
             error('No appropriate controller structure (parDXCPPhaT_cl.ControllerStructure)')
     end
-    %End controller choice
+    
 end
 

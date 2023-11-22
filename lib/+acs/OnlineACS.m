@@ -1,7 +1,6 @@
-% This implements the ACS algorithm as a class to enable
-% elegant online ACS estimation in parallel to the main DXCPP algorithm.
+% Implements a stateful algorithm to enable
+% online ACS estimation required for use with closed-loop DXCPP.
 %
-% Outputs only the BINARY IACS
 
 classdef OnlineACS < handle
     properties

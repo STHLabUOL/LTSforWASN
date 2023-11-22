@@ -1,7 +1,7 @@
 function parDXCPPhaT = DXCP_PhaT_DefaultParams()
 
     % Returns default parameters for DXCP-PhaT.
-    % Reduces clutter when using DXCP-PhaT module.
+    % Helps reducing clutter when using DXCP-PhaT module.
 
     fs_Hz = 16e3;
 

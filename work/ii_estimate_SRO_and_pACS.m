@@ -12,7 +12,7 @@ conf = Config();
 
 %% PARAMETERS: GENERAL
 
-dbPath = conf.pathDB_train;
+dbPath = conf.pathDB_test;%conf.pathDB_train;
 load([dbPath, 'parameters.mat'], 'fs_Hz', 'sigLen_s', 'n_setups');
 sigLen_smp = sigLen_s*fs_Hz;
 

@@ -1,12 +1,17 @@
 function [sampleSeries] = seriesFramesToSamples(frameSeries, frameSize, frameShift, lenSmp)
 
+    % Translates series of values where each value corresponds to one frame
+    % of some origin signal to a series where each value corresponds to 
+    % one sample of that signal (values are repeated)
     %
-    % Translates series of values where each sample represents one frame
-    % to a corresponding sample-wise series by repeating values.
-    %
-    %
-    % Note: This was created specifically for evaluation 11.10.22
-    % and probably needs a rework.
+    % Input:
+    %   frameSeries: Series of values where each corresponds to one frame
+    %   frameSize: used frame size
+    %   frameShift: used frame shift
+    %   lenSmp: length of origin signal in samples
+    % Output:
+    %   sampleSeries: Equivalent series of values, each corresponding to
+    %                   one sample of the origin signal.
 
     sigLen_smp = lenSmp;
     sampleSeries = zeros(1, sigLen_smp);

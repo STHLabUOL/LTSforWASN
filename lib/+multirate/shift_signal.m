@@ -1,5 +1,11 @@
 function y_shifted = shift_signal(y, smp)
-    % shift 1D array, insert zeros
+
+    % Shifts 1-dimensional array by given amount and
+    % inserts zeros accordingly.
+    %
+    % Input:
+    %   y: the signal
+    %   smp: number of sample to shift. can be negative.
     
     if size(y, 1) == 1
         col_shift = 1;

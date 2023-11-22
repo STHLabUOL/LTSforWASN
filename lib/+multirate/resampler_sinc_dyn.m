@@ -6,7 +6,7 @@ function [y] = resampler_sinc_dyn(x, WindowSize, SRO_ppm, Delay, out_range)
 %       Added param init, if they are not passed by a call
 %       Eleminated a for-loop for Window sizes > 50
 %
-% "dyn": (NK) Resample based on time variant SRO_ppm input 
+% "dyn": Resample based on time variant SRO_ppm input 
 %
 % :param x: signal (vector)
 % :param WindowSize: Size of window (scalar e.g. 100)

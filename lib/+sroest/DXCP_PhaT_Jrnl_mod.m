@@ -1,8 +1,6 @@
 function [SROest_ppm, SSOest_smp, GCCF1, GCCF2, GCCF2_avg, GCCF2_avg_upsmp, ...
     GCCF1_sroComp, GCCF1_sroComp_avg, GCSD2_avg_hist, GCSD2_hist] = DXCP_PhaT_Jrnl_mod(sig_z, parDXCPPhaT)
-% -
-% NK: Modified version with extended output (eg. GCSD2)
-% -
+
 % Implementation of Double-Cross-Correlation Processor (DXCP) developed for
 % journal paper 'Blind Synchronization in Acoustic Sensor Networks Using
 % Double-Cross-Correlation Prozessor with Phase Transform (DXCP-PhaT)'.
