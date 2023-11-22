@@ -56,7 +56,7 @@ In `iii_ACS_SRO_Est_err_PercentileFit.m`, the previously generated SRO and pACS 
 
 This script requires no further configuration and can be executed as-is. No results are stored. The employed threshold for obtaining the ACS is configured elsewhere.
 
-![Histogram and Curve Fit (LibriSpeech)](fig_2b.png)
+<img src="fig_2b.png" width="500" height="auto" alt="Histogram and Curve Fit (LibriSpeech)">
 
 ### 3.4 Evaluate 
 Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. While this script generally requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
@@ -65,8 +65,9 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 | --- | --- |
 | include_CL_DXCPP | Whether or not to include closed-loop DXCP-PhaT SRO estimation in evaluation. Set to 1 or 0.
 
-![Evaluation results Open Loop (LibriSpeech)](fig_4a.png)
-![Evaluation results Closed Loop (LibriSpeech)](fig_4b.png)
+
+<img src="fig_4a.png" width="500" height="auto" alt="Evaluation results Open Loop (LibriSpeech)">
+<img src="fig_4b.png" width="500" height="auto" alt="Evaluation results Closed Loop (LibriSpeech)">
 
 ## 4. Acknowledgment
 This work was partially supported by [German Research Foundation (DFG)](https://asn.uni-paderborn.de/) - Project 282835863.
