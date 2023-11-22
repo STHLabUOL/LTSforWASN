@@ -89,12 +89,12 @@ xCenters = xEdges(2:end) - (xEdges(2)-xEdges(1))/2;
 figure; grid on;
 for ii = 1:size(hcounts, 1)
    yvals = movmean(hcounts(ii,:), 5);
-   fill3(xCenters(ii)*ones(1, length(yCenters)), 10.^yCenters, yvals, 'b', 'FaceAlpha', 0.4, 'EdgeAlpha', 0.4);  
+   plt_hist = fill3(xCenters(ii)*ones(1, length(yCenters)), 10.^yCenters, yvals, 'b', 'FaceAlpha', 0.4, 'EdgeAlpha', 0.4);  
    grid on;
    hold on;
 end
-plot3(chi_bin_centers, sro_absErr_values, zeros(size(sro_absErr_values)), 'x', 'Color', '#A2142F', 'MarkerSize', 8);
-plot3(fit_x, fit_y, zeros(size(fit_y)), 'LineWidth', 3, 'Color', '#A2142F'); 
+plt_95 = plot3(chi_bin_centers, sro_absErr_values, zeros(size(sro_absErr_values)), 'x', 'Color', '#A2142F', 'MarkerSize', 12, 'LineWidth', 2);
+plt_fit = plot3(fit_x, fit_y, zeros(size(fit_y)), 'LineWidth', 3, 'Color', '#A2142F'); 
 xlabel('$\chi$');
 ylabel('$|\varepsilon - \hat{\varepsilon}|$ [ppm]');
 zlabel('Rel. Freq.');
@@ -104,3 +104,10 @@ title('Lin. Interpolated and Smoothed Histograms');
 set(gca, 'YScale', 'log');
 ylim([1e-3, 20]);
 
+
+%lines
+plt_yline = plot3([0, 0.2], [1, 1], [0, 0], '--k', 'LineWidth', 2);
+hold on;
+plt_chi0 = plot3([chi0, chi0], [1e-3, 1e2], [0, 0], '-k', 'LineWidth', 2);
+
+legend([plt_95, plt_fit, plt_yline, plt_chi0], '\{$\chi; $AE$_{\epsilon}^{95}$\}', 'UAE$_{\epsilon,0}$', 'AE$_{\epsilon,0}=1$ppm', '$\chi_0$')
