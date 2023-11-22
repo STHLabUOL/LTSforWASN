@@ -17,7 +17,7 @@ Please download the development set "clean" speech [here](https://www.openslr.or
 
 
 ### 1.2 Asynchronous signal database
-Exemplary training and test databases are available [here](#). Place both directories inside the `databases/` directory. Databases contain the simulated asynchronous signals. In addition, you can find the results for step 2 in `???/results/est_results.mat` and the results for step 4 in `???/results/eval_results.mat`.
+Exemplary training and test databases are available [here](#). Place both directories inside the `databases/` directory. Databases contain the simulated asynchronous signals. In addition, you can find the results for step 2 in `2023_11_15_13_38_48/results/est_results.mat` and the results for step 4 in `2023_11_16_12_19_41/results/eval_results.mat`.
 
 Note that, due to the aforementioned circumstances, you will not be able to precisely reproduce the published results.
 
@@ -75,6 +75,8 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 <img src="fig_4b.png" width="500" height="auto" alt="Evaluation results Closed Loop (LibriSpeech)">
 </div>
 &emsp;
+
+*Please note: The evaluation results displayed here were generated based on the database created using libri-speech source signals (see 1.2), but using the original threshold $\chi_0$ from the publication, as inferred from other data used during internal development. Since the databases are of limited size, some fluctuations in results are to be expected. Specifically, we observe a slightly higher threshold when fitting the exponential curve on the bivariate histogram with data based on the libri-speech corpus. Employing this higher threshold, performance is overall still good, but suffers in some scenarios. Generally, some adjustsments may be needed when working with different type of source audio. For example, one might use 90th percentiles to fit the exponential curve, instead.*
 
 ## 4. Acknowledgment
 This work was partially supported by [German Research Foundation (DFG)](https://asn.uni-paderborn.de/) - Project 282835863.
