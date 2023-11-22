@@ -21,7 +21,7 @@ SNR_dB_selfNoise = 20;  % signal-to-noise ratio [dB] for mic. noise
 SNR_dB_diffuseNoise_range = [10 20]; 
 
 % randomiser params
-n_setups = 30; % number of random setups
+n_setups = 3; % number of random setups
 
 globSrcPause_start_range = [90, 110];
 globSrcPause_end_range = [190, 210];
@@ -37,7 +37,6 @@ micDistFromLocSrc_range = [.1, .3];
 FFTsize = 2^13;
 FFTshift = 2^11;
 
-sigPath = conf.pathTIMIT;
 
 %% PARAMETERS: SOURCE(S)
 
@@ -81,11 +80,11 @@ parRoom.Pos_Reg = [minDistFromWall, parRoom.roomSize_m(1)-minDistFromWall;
 % self-noise
 parNoise.SNR_dB = SNR_dB_selfNoise;
 parNoise.preset = 'white'; % 'white'/'pink'
-parNoise.file = [sigPath '../simulated_noise_white_16kHz_16min.wav'];
+parNoise.file = [conf.pathNoise 'simulated_noise_white_16kHz_16min.wav'];
 
 % diffuse noise
 parDiffuse.preset = 'white';
-parDiffuse.file = [sigPath '../simulated_noise_white_16kHz_16min_2.wav'];
+parDiffuse.file = [conf.pathNoise 'simulated_noise_white_16kHz_16min_2.wav'];
 parDiffuse.spatialType = 'spherical';      % 'white'/'spherical'/'cylindrical'
 parDiffuse.spatialFFT = 1024;
 
@@ -151,14 +150,60 @@ for nn = 1:n_setups
     parRoom.micPos_m = [gensig.randomMicPosNearLocSrc(pos_locSrcA, micDistFromLocSrc_range, parRoom.roomSize_m', minDistFromWall); ... 
                          gensig.randomMicPosNearLocSrc(pos_locSrcB, micDistFromLocSrc_range, parRoom.roomSize_m', minDistFromWall)]';
 
+    
     % draw source files (make sure no file appears more than once)
-    src_file_numbers = 0;
-    while isequal(src_file_numbers, 0) || length(unique(src_file_numbers)) ~= length(src_file_numbers)
-        src_file_numbers = round(unifrnd(1, 50, 1, 3)); % timit files 1.wav ... 50.wav
+    % (LIBRI-SPEECH VARIANT)
+    %-- scan librispeech directory and collect lists of grouped wave files
+    pathCollections = conf.pathTIMIT;
+    contents = dir(pathCollections);
+    subDirs = contents([contents.isdir]);
+    subDirs = subDirs(~ismember({subDirs.name}, {'.', '..'}));
+    collections = {};
+    for ii = 1:length(subDirs)
+        subContents = dir(strcat(pathCollections, "/", subDirs(ii).name, "/"));
+        subsubDirs = subContents([subContents.isdir]);
+        subsubDirs = subsubDirs(~ismember({subsubDirs.name}, {'.', '..'}));
+        for jj = 1:length(subsubDirs)        
+            fileContents = dir(strcat(pathCollections, "/", subDirs(ii).name, "/", subsubDirs(jj).name));
+            files = fileContents(~ismember({fileContents.name}, {'.', '..'}));    
+            filenames = {};
+            for ff = 1:length(files)
+                strsplit = split(files(ff).name, ".");
+                if strsplit{end} ~= "flac"
+                    continue
+                end
+                filenames{ff} = strcat(pathCollections, "/", subDirs(ii).name, "/", subsubDirs(jj).name, "/", files(ff).name); 
+            end
+            collections{ii} = filenames;
+        end
     end
-    parSource.file(1) = {[sigPath num2str(src_file_numbers(1)) '.wav']}; % global src 
-    parSource.file(2) = {[sigPath num2str(src_file_numbers(2)) '.wav']}; % local src A
-    parSource.file(3) = {[sigPath num2str(src_file_numbers(3)) '.wav']}; % local src B
+    
+    %-- select random collections for each of the 3 segments
+    collection_idcs = 0;
+    while isequal(collection_idcs, 0) || length(unique(collection_idcs)) ~= length(collection_idcs)
+        collection_idcs = round(unifrnd(1, length(collections), 1, 3));
+    end
+    
+    %-- compose each segment by concatenating files of collection
+    for ii = 1:length(collection_idcs)
+        filenames = collections{collection_idcs(ii)};
+        targetLength_s = parSource.activity{ii}(end) - parSource.activity{ii}(1);
+        if ii == 1 %global src
+            targetLength_s = parSource.activity{ii}(1,2)-parSource.activity{ii}(1,1)+parSource.activity{ii}(2,2)-parSource.activity{ii}(2,1);
+        end
+        y_aggr = [];
+        for ff = 1:length(filenames)
+            [y, ~] = audioread(filenames{ff});
+            y_aggr = [y_aggr; y];
+            if length(y_aggr)/fs_Hz > targetLength_s
+                break
+            end
+        end
+        targetFilename = strcat("tmp_", int2str(ii), ".flac");
+        audiowrite(targetFilename, y_aggr, fs_Hz);
+        parSource.file(ii) = targetFilename;
+    end
+
 
     % Generate signals...
     strSetup = ['setup_' num2str(nn)];
@@ -173,6 +218,11 @@ for nn = 1:n_setups
     
     % save audio
     audiowrite([target_dirname '/wav_files/z_' strSetup '.wav'], sig_z/(max(max(abs(sig_z)))+1e-3), fs_Hz);
+
+    % delete temporary files
+    for ii = 1:length(parSource.file)
+        delete(parSource.file(ii));
+    end
 
 end
 
