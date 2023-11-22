@@ -97,10 +97,9 @@ plt_95 = plot3(chi_bin_centers, sro_absErr_values, zeros(size(sro_absErr_values)
 plt_fit = plot3(fit_x, fit_y, zeros(size(fit_y)), 'LineWidth', 3, 'Color', '#A2142F'); 
 xlabel('$\chi$');
 ylabel('$|\varepsilon - \hat{\varepsilon}|$ [ppm]');
-zlabel('Rel. Freq.');
 xlim([chi_bin_edges(1), chi_bin_edges(end)]);
 view(80, 60);
-title('Lin. Interpolated and Smoothed Histograms');
+title('Lin. Interpolated and Smoothed Normalized Histograms');
 set(gca, 'YScale', 'log');
 ylim([1e-3, 20]);
 
