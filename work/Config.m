@@ -8,8 +8,8 @@ classdef Config < handle
     end
     methods
         function obj = Config()
-            obj.pathDB_train = [obj.pathDB_root '2023_11_15_13_38_48\'];
-            obj.pathDB_test = [obj.pathDB_root '2023_11_16_12_19_41\'];
+            obj.pathDB_train = [obj.pathDB_root '2023_11_15_13_38_48/'];
+            obj.pathDB_test = [obj.pathDB_root '2023_11_16_12_19_41/'];
         end
     end
 end
