@@ -195,10 +195,21 @@ target_filename = [dbPath 'results/eval_results_' num2str(year) '_' num2str(mont
 save(target_filename); 
 
 
-%% DISPLAY AVERAGE AMSC VALUES
+%% DISPLAY AVERAGE VALUES
 
-disp(["Avg. AMSC for OL (default/ACS/SAD): ", num2str(mean(AMSC_default)), num2str(mean(AMSC_ACS)), num2str(mean(AMSC_VAD))]);
-disp(["Avg. AMSC for CL (default/ACS/SAD): ", num2str(mean(AMSC_cl_default)), num2str(mean(AMSC_cl_ACS)), num2str(mean(AMSC_cl_VAD))]);
+disp("---------- Average AMSC Values:")
+disp("Avg. AMSC for OL-DXCP-Phat (plain, +SAD, +ACS): ")
+disp([mean(AMSC_default), mean(AMSC_VAD), mean(AMSC_ACS)])
+
+disp("Avg. AMSC for CL-DXCP-Phat (plain, +SAD, +ACS): ")
+disp([mean(AMSC_cl_default), mean(AMSC_cl_VAD), mean(AMSC_cl_ACS)]);
+
+disp("---------- Average AE_max Values:")
+disp("Avg. AE_max for OL-DXCP-Phat [ppm] (plain, +SAD, +ACS): ")
+disp([mean(SRO_maxErr_default), mean(SRO_maxErr_VAD), mean(SRO_maxErr_ACS)])
+
+disp("Avg. AE_max for CL-DXCP-Phat [ppm] (plain, +SAD, +ACS): ")
+disp([mean(SRO_maxErr_cl_default), mean(SRO_maxErr_cl_VAD), mean(SRO_maxErr_cl_ACS)])
 
 
 %% PLOTS: MAX-ERR
@@ -207,6 +218,7 @@ figpos = [100, 100, 530, 170];
 figure('Renderer', 'painters', 'Position', figpos); 
 
 % -- OL
+subplot(2, 1, 1);
 hold on; grid on; box on;
 %set(gca, 'YGrid', 'on', 'XGrid', 'none');
 set(gca, 'MinorGridLineStyle', 'none');
@@ -243,8 +255,9 @@ xtickangle(90);
 ylabel('AE$_{\varepsilon,max}$ [ppm]', 'Interpreter', 'Latex', 'FontSize', 14);
 
 % -- CL
-figpos2 = figpos + [0, 0, 0, 25]; %extra height for xlabel
-figure('Renderer', 'painters', 'Position', figpos2); 
+%figpos2 = figpos + [0, 0, 0, 25]; %extra height for xlabel
+%figure('Renderer', 'painters', 'Position', figpos2); 
+subplot(2, 1, 2)
 hold on; grid on; box on;
 %set(gca, 'YGrid', 'on', 'XGrid', 'off');
 set(gca, 'MinorGridLineStyle', 'none');
