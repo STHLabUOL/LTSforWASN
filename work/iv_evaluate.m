@@ -83,7 +83,7 @@ parfor nn = 1:n_setups
     idx_end_smp = floor(idx_start_smp + sum(select_smp_raw) + frames_add*parDXCPPhaT.FFTshift);
     select_smp = zeros(1, sigLen_smp);
     select_smp(idx_start_smp:idx_end_smp) = 1;
-    select_smp = boolean(select_smp);
+    select_smp = logical(select_smp);
     % -- frame range (translated)
     relative_length = sum(select_smp_raw)/length(sig_s_mask(:,1));
     relative_start = idx_start_smp/length(sig_s_mask(:,1));
@@ -91,7 +91,7 @@ parfor nn = 1:n_setups
     idx_end = idx_start + floor(sigLen_frames*relative_length) + frames_add;
     select = zeros(1, sigLen_frames);
     select(idx_start:idx_end) = 1;
-    select = boolean(select);
+    select = logical(select);
 
     % /// OL: DEFAULT
     SRO_Est_ = squeeze(SRO_Est(nn, :));
