@@ -49,7 +49,7 @@ The following summarizes the most important configurable parameters:
 | n_setups | Number of setups (aka geometries) simulated.
 
 ### 3.2 Estimate SRO and preliminary ACS
-After the database is created, SRO and preliminary ACS (pACS) estimation is carried out in `ii_estimate_SRO_and_pACS.m`. Remember to update the paths for test and training database in `Config.m` if you are not using the provided data but instead created your own in 3.1.
+After the database is created, SRO and preliminary ACS (pACS) estimation is carried out in `ii_estimate_SRO_and_pACS.m` via the Double Cross Correlation Processor with Phase-Transform (DXCP-PhaT). Remember to update the paths for test and training database in `Config.m` if you are not using the provided data but instead created your own in 3.1.
 
 This script requires no further configuration and can be executed as-is. The results will be stored in `databases/<training-database>/results/est_results.mat`.
 
@@ -65,7 +65,7 @@ This script requires no further configuration and can be executed as-is. No resu
 &emsp;
 
 ### 3.4 Evaluate 
-Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. That is, the maximum absolute SRO estimation error AE$_{max}$ is computed for each setup. Additionally, the averaged magnitude squared cohernce (AMSC) is computed as an average over all setups. While this script generally requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
+Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. That is, the maximum absolute SRO estimation error AE$_{max}$ is computed for each setup. Additionally, the averaged magnitude squared cohernce (AMSC) is computed as an average over all setups. While this script generally requires no further configuration, you can choose to evaluate only the Open-Loop variant of the DXCP-PhaT in order to significantly reduce the execution time:
 
 | Parameter | Description |
 | --- | --- |
