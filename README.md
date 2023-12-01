@@ -67,7 +67,7 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 
 | Parameter | Description |
 | --- | --- |
-| include_CL_DXCPP | Whether or not to include closed-loop DXCP-PhaT SRO estimation in evaluation. Set to 1 or 0.
+| include_CL_DXCPP | Whether to include closed-loop DXCP-PhaT SRO estimation in evaluation. Set to 1 or 0.
 
 &emsp;
 <div align="center">
@@ -76,6 +76,7 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 </div>
 &emsp;
 
+<div align="center">
 <table>
   <tr>
     <th rowspan="1"></th>
@@ -95,23 +96,24 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
   </tr>
   <tr>
     <td>AE<sub>max</sub> [ppm]</td>
-    <td>11.21</td>
-    <td>4.22</td>
-    <td>0.48</td>
-    <td>5.74</td>
-    <td>2.62</td>
-    <td>0.26</td>
+    <td>51.96</td>
+    <td>6.89</td>
+    <td>0.61</td>
+    <td>21.14</td>
+    <td>5.47</td>
+    <td>0.37</td>
   </tr>
   <tr>
     <td>0&lt; AMSC &lt;1</td>
-    <td>0.16</td>
+    <td>0.13</td>
     <td>0.24</td>
-    <td>0.88</td>
-    <td>0.70</td>
-    <td>0.74</td>
-    <td>0.97</td>
+    <td>0.81</td>
+    <td>0.56</td>
+    <td>0.63</td>
+    <td>0.93</td>
   </tr>
 </table>
+</div>
 
 
 
