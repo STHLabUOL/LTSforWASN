@@ -78,11 +78,12 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 
 <table>
   <tr>
-    <th rowspan="2"></th>
+    <th rowspan="1"></th>
     <th colspan="3">Open-Loop</th>
     <th colspan="3">Closed-Loop</th>
   </tr>
   <tr>
+    <td>averaged</td>
     <th>plain</th>
     <th>+SAD</th>
     <th>+ACS</th>
@@ -91,7 +92,9 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
     <th>+ACS</th>
   </tr>
   <tr>
-    <td>averaged</td>
+  </tr>
+  <tr>
+    <td>AE<sub>max</sub> [ppm]</td>
     <td>11.21</td>
     <td>4.22</td>
     <td>0.48</td>
@@ -100,12 +103,7 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
     <td>0.26</td>
   </tr>
   <tr>
-    <td>AE<sub>max</sub> [ppm]</td>
-    <td colspan="3"></td>
-    <td colspan="3"></td>
-  </tr>
-  <tr>
-    <td>0&lt; MSC &lt;1</td>
+    <td>0&lt; AMSC &lt;1</td>
     <td>0.16</td>
     <td>0.24</td>
     <td>0.88</td>
