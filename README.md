@@ -47,7 +47,7 @@ The following summarizes the most important configurable parameters:
 | n_setups | Number of setups (aka geometries) simulated.
 
 ### 3.2 Estimate SRO and preliminary ACS
-After the database is created, SRO and preliminary ACS estimation is carried out in `ii_estimate_SRO_and_pACS.m`. Remember to update the paths for test and training database in `Config.m` if you are not using the provided data but instead created your own in 3.1.
+After the database is created, SRO and preliminary ACS (pACS) estimation is carried out in `ii_estimate_SRO_and_pACS.m`. Remember to update the paths for test and training database in `Config.m` if you are not using the provided data but instead created your own in 3.1.
 
 This script requires no further configuration and can be executed as-is. The results will be stored in `databases/<training-database>/results/est_results.mat`.
 
@@ -63,7 +63,7 @@ This script requires no further configuration and can be executed as-is. No resu
 &emsp;
 
 ### 3.4 Evaluate 
-Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. While this script generally requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
+Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. That is, the maximum absolute SRO estimation error AE$_{max}$ is computed for each setup. Additionally, the averaged magnitude squared cohernce (AMSC) is computed as an average over all setups. While this script generally requires no further configuration, you can choose to evaluate only the open-loop DXCP-PhaT SRO estimation in order to significantly reduce the execution time:
 
 | Parameter | Description |
 | --- | --- |
@@ -75,6 +75,16 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 <img src="fig_4b.png" width="500" height="auto" alt="Evaluation results Closed Loop (LibriSpeech)">
 </div>
 &emsp;
+
+|                    | Open-Loop                     | Closed-Loop                  |
+|--------------------|-------------------------------|------------------------------|
+|                    | plain   | +SAD   | +ACS     | plain   | +SAD   | +ACS      |
+|--------------------|---------|--------|----------|---------|--------|-----------|
+| averaged           | 11.21   | 4.22   | 0.48     | 5.74    | 2.62   | 0.26      |
+| AE_max[ppm] |         |         |          |         |         |           |
+| 0< MSC <1          | 0.16    | 0.24   | 0.88     | 0.70    | 0.74   | 0.97      |
+
+
 
 *Please note: The evaluation results displayed here were generated based on the database created using libri-speech source signals (see 1.2), but using the original threshold $\chi_0$ from the publication, as inferred from other data used during internal development. Since the databases are of limited size, some fluctuations in results are to be expected. Specifically, we observe a slightly higher threshold when fitting the exponential curve on the bivariate histogram with data based on the libri-speech corpus. Employing this higher threshold, performance is overall still good, but suffers in some scenarios. Generally, some adjustsments may be needed when working with different type of source audio. For example, one might use 90th percentiles to fit the exponential curve, instead.*
 
