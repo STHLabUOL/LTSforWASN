@@ -76,13 +76,44 @@ Finally, the performance of ACS supported SRO estimation is evaluated in `iv_eva
 </div>
 &emsp;
 
-|                    | Open-Loop                     | Closed-Loop                  |
-|--------------------|-------------------------------|------------------------------|
-|                    | plain   | +SAD   | +ACS     | plain   | +SAD   | +ACS      |
-|--------------------|---------|--------|----------|---------|--------|-----------|
-| averaged           | 11.21   | 4.22   | 0.48     | 5.74    | 2.62   | 0.26      |
-| AE_max[ppm] |         |         |          |         |         |           |
-| 0< MSC <1          | 0.16    | 0.24   | 0.88     | 0.70    | 0.74   | 0.97      |
+<table>
+  <tr>
+    <th rowspan="2"></th>
+    <th colspan="3">Open-Loop</th>
+    <th colspan="3">Closed-Loop</th>
+  </tr>
+  <tr>
+    <th>plain</th>
+    <th>+SAD</th>
+    <th>+ACS</th>
+    <th>plain</th>
+    <th>+SAD</th>
+    <th>+ACS</th>
+  </tr>
+  <tr>
+    <td>averaged</td>
+    <td>11.21</td>
+    <td>4.22</td>
+    <td>0.48</td>
+    <td>5.74</td>
+    <td>2.62</td>
+    <td>0.26</td>
+  </tr>
+  <tr>
+    <td>AE<sub>max</sub> [ppm]</td>
+    <td colspan="3"></td>
+    <td colspan="3"></td>
+  </tr>
+  <tr>
+    <td>0&lt; MSC &lt;1</td>
+    <td>0.16</td>
+    <td>0.24</td>
+    <td>0.88</td>
+    <td>0.70</td>
+    <td>0.74</td>
+    <td>0.97</td>
+  </tr>
+</table>
 
 
 
