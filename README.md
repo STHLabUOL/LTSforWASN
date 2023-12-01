@@ -22,7 +22,9 @@ Exemplary training and test databases are available [here](#). Place both direct
 Note that, due to the aforementioned circumstances, you will not be able to precisely reproduce the published results.
 
 
-## 2 Configuration
+## 2 Startup and Configuration
+Before running any of the primary scripts, make sure to execute `startup.m` from the main directory. This ensures all necessary subdirectories are added to the MATLAB path and also sets some defaults for plots. When launching MATLAB directory from the main directory, `startup.m` is executed automatically.
+
 Paths are configured globally with `Config.m`. This includes the root path for audio source signals and all databases, as well as the specific paths to the training and test database. By default, the latter point to the databases provided by us (see 1.2). 
 
 
