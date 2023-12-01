@@ -65,7 +65,7 @@ This script requires no further configuration and can be executed as-is. No resu
 &emsp;
 
 ### 3.4 Evaluate 
-Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. That is, the maximum absolute SRO estimation error AE$_{max}$ is computed for each setup. Additionally, the averaged magnitude squared cohernce (AMSC) is computed as an average over all setups. While this script generally requires no further configuration, you can choose to evaluate only the Open-Loop variant of the DXCP-PhaT in order to significantly reduce the execution time:
+Finally, the performance of ACS supported SRO estimation is evaluated in `iv_evaluate.m` using the test database. That is, the maximum absolute SRO estimation error AE$`_{max}`$ is computed for each setup. Additionally, the averaged magnitude squared cohernce (AMSC) is computed as an average over all setups. While this script generally requires no further configuration, you can choose to evaluate only the Open-Loop variant of the DXCP-PhaT in order to significantly reduce the execution time:
 
 | Parameter | Description |
 | --- | --- |
